@@ -1,0 +1,5 @@
+export const miListaTypes = {
+    GET_MI_LISTA: 'GET_MILISTA',
+    ADD_TO_MI_LISTA: 'ADD_TO_MI_LISTA',
+    REMOVE_FROM_MI_LISTA: 'REMOVE_FROM_MI_LISTA',
+}
