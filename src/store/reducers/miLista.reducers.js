@@ -20,7 +20,6 @@ const miListaReducer = (state = initialState, action) => {
             }
         case REMOVE_FROM_MI_LISTA:
             return {
-                ...state,
                 lista: action.lista,
             }
         default:
