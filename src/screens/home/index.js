@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import {ScrollView, View, Text} from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { getMovies } from '../../store/actions/movie.actions';
-import { getMiListaFromAction } from '../../store/actions/miLista.actions';
+import { getMiLista } from '../../store/actions/miLista.actions';
 import FeatherIcons from '@expo/vector-icons/Feather';
 import Portada from '../../components/Portada';
 import MovieList from '../../components/MovieList/index';
@@ -12,10 +12,10 @@ const HomeScreen = ({navigation}) => {
 
     const miLista  = useSelector((state) => state.miLista.lista)
     const dispatch = useDispatch();
-    // console.log(miLista)
+    
     useEffect(() => {
         dispatch(getMovies())
-        dispatch(getMiListaFromAction())
+        dispatch(getMiLista())
      }, []);
 
     const onHandleNavigation = ()=> {

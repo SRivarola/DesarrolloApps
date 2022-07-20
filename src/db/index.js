@@ -17,6 +17,24 @@ export const init = () => {
     return promise;
 }
 
+export const getItems = () => {
+    const promise = new Promise((resolve, reject) => {
+        db.transaction(tx => {
+            tx.executeSql(
+                'SELECT * FROM miLista',
+                [],
+                (_, result) => {
+                    resolve(result)
+                },
+                (_, err) => {
+                    reject(err)
+                }
+            )
+        })
+    })
+    return promise;
+}
+
 export const insertItem = (item) => {
     const promise = new Promise((resolve, reject) => {
         db.transaction(tx =>{
@@ -37,16 +55,17 @@ export const insertItem = (item) => {
     return promise;
 }
 
-export const getMiLista = () => {
+export const deleteItem = (id) => {
     const promise = new Promise((resolve, reject) => {
-        db.transaction(tx => {
+        db.transaction(tx =>{
             tx.executeSql(
-                'SELECT * FROM miLista',
-                [],
+                `DELETE FROM miLista WHERE id = ${id}`,
                 (_, result) => {
-                    resolve(result)
+                    console.log(result);
+                    resolve(result);
                 },
                 (_, err) => {
+                    console.log(err);
                     reject(err)
                 }
             )

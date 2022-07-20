@@ -6,7 +6,8 @@ import { getBaseImgUrl } from '../../store/actions/movie.actions';
 import { styles } from './styles';
 import Genres from '../Genres/index';
 import CustomModal from '../CustomModal/index';
-import { insertItem } from '../../db';
+import { addToMiLista, deleteFromMiList } from '../../store/actions/miLista.actions';
+// import { deleteItem } from '../../db';
 
 const Portada = ({navegacion}) => {
 
@@ -27,11 +28,12 @@ const Portada = ({navegacion}) => {
     }
 
     const onHandleAddToMiLista = () => {
-        insertItem(datos)
+        dispatch(addToMiLista(datos))
     }
-
+    
     const onHandleRemoveToMiLista = () => {
-        console.log('nada')
+        const dato = miLista.find(item => item.id === datos.id)
+        dispatch(deleteFromMiList(dato.idDB))
     }
 
     function finderId(item) {

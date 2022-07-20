@@ -13,7 +13,7 @@ const MovieList = ({lista, titulo}) => {
         <Movie {...item} datos={item} />
     );
     
-    const keyExtractor = (item) => item.id.toString();
+    const keyExtractor = (item) => item.idDB ? item.idDB.toString() : item.id.toString();
 
     return (
         <View style={styles.container}>

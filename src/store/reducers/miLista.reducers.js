@@ -13,6 +13,16 @@ const miListaReducer = (state = initialState, action) => {
                 ...state,
                 lista: action.lista,
             }
+        case ADD_TO_MI_LISTA:
+            return {
+                ...state,
+                lista: [...state.lista, action.lista]
+            }
+        case REMOVE_FROM_MI_LISTA:
+            return {
+                ...state,
+                lista: action.lista,
+            }
         default:
             return state;
     }
