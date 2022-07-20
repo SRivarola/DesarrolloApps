@@ -50,7 +50,7 @@ export const deleteFromMiList = (id) => {
                 let objeto = {idDB: element.id, ...JSON.parse(element.item)}
                 array.push(objeto)
             }
-            console.log(array)
+            
             dispatch({
                 type: REMOVE_FROM_MI_LISTA,
                 lista: array
