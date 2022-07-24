@@ -42,7 +42,6 @@ export const insertItem = (item) => {
                 'INSERT INTO miLista (item) VALUES (?)',
                 [JSON.stringify(item)],
                 (_, result) => {
-                    console.log(result);
                     resolve(result);
                 },
                 (_, err) => {
@@ -56,16 +55,16 @@ export const insertItem = (item) => {
 }
 
 export const deleteItem = (id) => {
+    let query = "DELETE FROM miLista WHERE id = ?";
+    let params = [id];
     const promise = new Promise((resolve, reject) => {
         db.transaction(tx =>{
-            tx.executeSql(
-                `DELETE FROM miLista WHERE id = ${id}`,
+            tx.executeSql(query, params,
                 (_, result) => {
-                    console.log(result);
                     resolve(result);
                 },
                 (_, err) => {
-                    console.log(err);
+                    console.log('error: ', err);
                     reject(err)
                 }
             )

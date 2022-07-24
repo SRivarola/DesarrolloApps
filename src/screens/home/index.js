@@ -7,6 +7,7 @@ import FeatherIcons from '@expo/vector-icons/Feather';
 import Portada from '../../components/Portada';
 import MovieList from '../../components/MovieList/index';
 import { styles } from './styles';
+import { colors } from '../../constants/colors';
 
 const HomeScreen = ({navigation}) => {
 
@@ -34,13 +35,14 @@ const HomeScreen = ({navigation}) => {
                     <View style={styles.listaVacia}>
                         <FeatherIcons 
                             name='plus'
-                            color={'#df5c7e'}
+                            color={colors.darkPink}
                             size={60}
                         />
                     </View>
                 </>
             }
             <MovieList lista={(state) => state.movieList.movies} titulo={'Peliculas populares'}/>
+            <View style={{height: 90, width: 100}}></View>
         </ScrollView>
     );
 }

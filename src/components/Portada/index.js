@@ -7,7 +7,6 @@ import { styles } from './styles';
 import Genres from '../Genres/index';
 import CustomModal from '../CustomModal/index';
 import { addToMiLista, deleteFromMiList } from '../../store/actions/miLista.actions';
-// import { deleteItem } from '../../db';
 
 const Portada = ({navegacion}) => {
 

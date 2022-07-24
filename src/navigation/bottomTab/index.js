@@ -1,42 +1,50 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useSelector } from 'react-redux';
 import IonicsIcons from '@expo/vector-icons/Ionicons'
 import MainNavigator from '../main/index';
 import SearchNavigator from '../search/index';
 import UserNavigator from '../user/index';
-import { Text } from 'react-native';
-import { colors } from '../../constants/colors'
+import { Text, Image } from 'react-native';
+import { colors } from '../../constants/colors';
+import { styles } from './styles';
 
 const BottomTabs = createBottomTabNavigator();
 
-const LabelBottonTab = (focused, label) => (
-    <Text
-        style={{
-            color: focused ? colors.rojoClaro : colors.rosa,
-            fontFamily: focused ? 'Lato-Bold' : 'Lato-Regular'
-        }}
-    >
-        {label}
-    </Text>
-)
-
 const TabNavigator = () => {
+
+    const userName = useSelector((state) => state.user.name);
+    const userImg = useSelector((state) => state.user.img);
+
     return (
         <BottomTabs.Navigator
             initialRouteName='HomeTab'
-            // screenOptions={{headerShown: false,}}
+            screenOptions={{
+                headerShown: false,
+                tabBarStyle: styles.buttomTab,
+                tabBarShowLabel: false,
+            }}
         >
             <BottomTabs.Screen
                 name='HomeTab'
                 component={MainNavigator}
                 options={{
-                    tabBarLabel: ({focused}) => LabelBottonTab(focused, 'Inicio'),
                     tabBarIcon: ({focused}) => (
+                        <>
                         <IonicsIcons 
                             name={ focused ? 'home' : 'home-outline'} 
-                            size={20}
-                            color={ focused ? colors.rojoClaro : colors.rosa }
+                            size={30}
+                            color={ focused ? colors.black : colors.grey }
                         />
+                        <Text
+                            style={{
+                                color: focused ? colors.black : colors.grey,
+                                fontFamily: focused ? 'Lato-Bold' : 'Lato-Regular'
+                            }}
+                        >
+                            Inicio
+                        </Text>
+                        </>
                     )
                 }}
             />
@@ -44,13 +52,22 @@ const TabNavigator = () => {
                 name='SearchTab'
                 component={SearchNavigator}
                 options={{
-                    tabBarLabel: ({focused}) => LabelBottonTab(focused, 'Buscar'),
                     tabBarIcon: ({focused}) => (
+                        <>
                         <IonicsIcons 
                             name={'search-sharp'} 
-                            size={20}
-                            color={ focused ? colors.rojoClaro : colors.rosa }
+                            size={30}
+                            color={ focused ? colors.black : colors.grey }
                         />
+                        <Text
+                            style={{
+                                color: focused ? colors.black : colors.grey,
+                                fontFamily: focused ? 'Lato-Bold' : 'Lato-Regular'
+                            }}
+                        >
+                            Buscar
+                        </Text>
+                        </>
                     )
                 }}
             />
@@ -58,13 +75,30 @@ const TabNavigator = () => {
                 name='UserTab'
                 component={UserNavigator}
                 options={{
-                    tabBarLabel: ({focused}) => LabelBottonTab(focused, 'User'),
                     tabBarIcon: ({focused}) => (
-                        <IonicsIcons 
-                            name={ focused ? 'md-person-sharp' : 'md-person-outline' } 
-                            size={20}
-                            color={ focused ? colors.rojoClaro : colors.rosa }
-                        />
+                        <>
+                        {
+                            userImg ?
+                            <Image 
+                                style={ styles.imagen }
+                                source={{uri: userImg}}
+                            />
+                            :
+                            <IonicsIcons 
+                                name={ focused ? 'md-person-sharp' : 'md-person-outline' } 
+                                size={30}
+                                color={ focused ? colors.black : colors.grey }
+                            />
+                        }
+                        <Text  
+                            style={{
+                                color: focused ? colors.black : colors.grey,
+                                fontFamily: focused ? 'Lato-Bold' : 'Lato-Regular'
+                            }}
+                        >
+                            {userName? userName : 'User'}
+                        </Text>
+                        </>
                     )
                 }}
             />

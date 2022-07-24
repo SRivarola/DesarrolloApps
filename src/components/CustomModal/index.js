@@ -3,24 +3,16 @@ import {Modal, View, TouchableHighlight, TouchableOpacity, Image, Text} from 're
 import { useSelector, useDispatch } from 'react-redux';
 import { styles } from './styles';
 import FeatherIcons from '@expo/vector-icons/Feather';
+import { addToMiLista, deleteFromMiList } from '../../store/actions/miLista.actions';
 
 const CustomModal = ({onHandlerModal, navegacion, modalVisible, setModalVisible}) => {
-
+    
+    const dispatch = useDispatch();
     const biu = useSelector((state) => state.movieList.baseImageUrl)
     const poster = useSelector((state) => state.movieList.portada)
     const datos = useSelector((state) => state.movieList.selected)
+    const miLista  = useSelector((state) => state.miLista.lista)
     const [boton, setBoton] = useState(false)
-
-    // useEffect(() => {
-    //     if(miLista){
-    //       const idDup = miLista.find(finderId)
-    //       if(idDup !== undefined) {
-    //         setBoton(true)
-    //       } else {
-    //         setBoton(false)
-    //       }
-    //     }
-    // }, [initMovie, miLista]);
 
     const onHandlerInfoModal = () => {
         setModalVisible(!modalVisible)
@@ -32,6 +24,30 @@ const CustomModal = ({onHandlerModal, navegacion, modalVisible, setModalVisible}
         let minutos = datos.runtime % 60;
         return horas + ' h ' + minutos + ' min'
     }
+
+    const onHandleAddToMiLista = () => {
+        dispatch(addToMiLista(datos))
+    }
+    
+    const onHandleRemoveToMiLista = () => {
+        const dato = miLista.find(item => item.id === datos.id)
+        dispatch(deleteFromMiList(dato.idDB))
+    }
+
+    function finderId(item) {
+        return (item.id === datos.id)
+    }
+
+    useEffect(() => {
+        if(miLista){
+          const idDup = miLista.find(finderId)
+          if(idDup !== undefined) {
+            setBoton(true)
+          } else {
+            setBoton(false)
+          }
+        }
+    }, [poster, miLista]);
 
     return (
         <>
@@ -69,7 +85,7 @@ const CustomModal = ({onHandlerModal, navegacion, modalVisible, setModalVisible}
                 </View>
                 <View style={styles.btnContainer}>
                     <TouchableOpacity 
-                        // onPress={boton? removeToMiLista : addToMiLista}
+                        onPress={boton? onHandleRemoveToMiLista : onHandleAddToMiLista}
                     >
                         <FeatherIcons
                             name={boton? 'check' : 'plus'}

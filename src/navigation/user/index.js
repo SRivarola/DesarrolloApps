@@ -10,7 +10,7 @@ const UserNavigator = () => {
             <Stack.Screen 
                 name='User'
                 component={UserScreen}
-                // options={{headerShown: false}}
+                options={{headerShown: false}}
             />
         </Stack.Navigator>
     )

@@ -1,19 +1,20 @@
 import { StyleSheet } from 'react-native';
+import { colors } from '../../constants/colors';
 
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'black',
+        backgroundColor: colors.black,
     },
     titulo: {
-        color: 'white',
+        color: colors.white,
         marginLeft: 5,
         fontSize: 15,
         fontWeight: 'bold',
         marginTop: 25,
     },
     listaVacia: {
-        backgroundColor: 'pink',
+        backgroundColor: colors.pink,
         width: 110,
         height: 170,
         borderRadius: 10,
