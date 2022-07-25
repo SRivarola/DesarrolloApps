@@ -23,6 +23,10 @@ const DetailsScreen = ({navigation}) => {
         return horas + ' h ' + minutos + ' min'
     }
 
+    const onHandleNavigation = ()=> {
+        navigation.navigate('Actor')
+    }
+
     return (
         <ScrollView style={styles.verMasContainer}>
             <View style={styles.headerContainer}>
@@ -42,6 +46,7 @@ const DetailsScreen = ({navigation}) => {
                 <View style={styles.textoContainer}>
                     <Text style={styles.texto}>{datos.release_date}</Text>
                     <Text style={styles.texto}>{convertirTiempo()}</Text>
+                    <Text style={styles.hd}>HD</Text>
                     {/* {
                         initMovie.number_of_seasons &&
                         <Text style={styles.texto}>{initMovie.number_of_seasons} {initMovie.number_of_seasons > 1 ? 'temporadas' : 'temporada'}</Text>
@@ -51,9 +56,10 @@ const DetailsScreen = ({navigation}) => {
                     <Text style={styles.overview}>{datos.overview}</Text>
                 </View>              
                 <View>
-                    <CastList />
+                    <CastList navegacion={onHandleNavigation}/>
                 </View>
             </View>
+            <View style={{height: 90, width: 100}}></View>
         </ScrollView>
     )
 }

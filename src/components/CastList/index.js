@@ -4,12 +4,12 @@ import {Text, FlatList} from 'react-native';
 import { styles } from './styles';
 import Cast from '../Cast/index';
 
-const CastList = () => {
+const CastList = ({navegacion}) => {
 
     const castList = useSelector((state) => state.movieList.cast)
-    console.log(castList)
+    // console.log(castList)
     const renderItem = ({item}) => (
-        <Cast {...item} datos={item} />
+        <Cast {...item} datos={item} navegacion={navegacion} />
     );
     const keyExtractor = (item) => item.id.toString();
 

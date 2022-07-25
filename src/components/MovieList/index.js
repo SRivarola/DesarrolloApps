@@ -5,12 +5,12 @@ import Movie from '../Movie/index';
 import { styles } from './styles'
 
 
-const MovieList = ({lista, titulo}) => {
+const MovieList = ({lista, titulo, navegacion}) => {
 
     const movies = useSelector(lista)
 
     const renderItem = ({item}) => (
-        <Movie {...item} datos={item} />
+        <Movie {...item} datos={item} navegacion={navegacion}/>
     );
     
     const keyExtractor = (item) => item.idDB ? item.idDB.toString() : item.id.toString();

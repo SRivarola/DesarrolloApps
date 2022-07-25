@@ -1,5 +1,4 @@
 import { miListaTypes } from "../types/miLista.types";
-import { useSelector } from 'react-redux';
 import { insertItem, getItems, deleteItem } from "../../db";
 
 const { GET_MI_LISTA, ADD_TO_MI_LISTA, REMOVE_FROM_MI_LISTA } = miListaTypes;

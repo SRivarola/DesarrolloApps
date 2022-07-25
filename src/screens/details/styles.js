@@ -1,4 +1,5 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
+import { colors } from '../../constants/colors';
 
 export const styles = StyleSheet.create({
     verMasContainer: {
@@ -40,15 +41,24 @@ export const styles = StyleSheet.create({
     },
     protagonistas:{
         marginLeft: 10,
-        color: 'grey',
+        color: colors.grey,
     },
     texto:{
-        color: 'grey',
+        color: colors.grey,
+        marginHorizontal: 10,
+    },
+    hd: {
+        backgroundColor: colors.grey,
+        paddingHorizontal: 5,
+        borderRadius: 5,
+        fontFamily: 'Lato-Black',
+        fontSize: 14,
+        lineHeight: 18,
         marginHorizontal: 10,
     },
     overview:{
         marginHorizontal: 10,
-        color: 'white',
+        color: colors.white,
     },
     lista:{
         flex: 1,

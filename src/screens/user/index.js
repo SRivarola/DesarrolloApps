@@ -22,10 +22,12 @@ const UserScreen = () => {
 
     const onHandlerUserName = () => {
         if(formData.userName.length < 4 || formData.userName.length > 8) {
-            setFormData({
-                ...formData,
-                error: 'Debe tener entre 4 y 8 caracteres'
-            })
+            return (
+                setFormData({
+                    ...formData,
+                    error: 'Debe tener entre 4 y 8 caracteres'
+                })
+            )
         } 
         dispatch(setUserName(formData.userName))
         setFormData({

@@ -19,13 +19,14 @@ const HomeScreen = ({navigation}) => {
         dispatch(getMiLista())
      }, []);
 
-    const onHandleNavigation = ()=> {
-        navigation.navigate('Details')
+    const onHandleNavigation = (ruta)=> {
+        navigation.navigate(ruta)
     }
+
 
     return (
         <ScrollView style={styles.container}>
-            <Portada navegacion={onHandleNavigation}/>
+            <Portada navegacion={() => onHandleNavigation('Details')}/>
             {
                 miLista.length > 0 ?
                     <MovieList lista={(state) => state.miLista.lista} titulo={'Mi lista'}/>
@@ -41,7 +42,7 @@ const HomeScreen = ({navigation}) => {
                     </View>
                 </>
             }
-            <MovieList lista={(state) => state.movieList.movies} titulo={'Peliculas populares'}/>
+            <MovieList lista={(state) => state.movieList.movies} titulo={'Peliculas populares'} navegacion={null}/>
             <View style={{height: 90, width: 100}}></View>
         </ScrollView>
     );

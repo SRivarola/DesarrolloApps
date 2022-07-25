@@ -80,7 +80,7 @@ const TabNavigator = () => {
                         {
                             userImg ?
                             <Image 
-                                style={ styles.imagen }
+                                style={ focused? {...styles.imagen, borderWidth: 1, borderColor: colors.black} : styles.imagen  }
                                 source={{uri: userImg}}
                             />
                             :
