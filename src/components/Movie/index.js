@@ -8,7 +8,7 @@ const Movie = ({poster_path, datos, navegacion}) => {
 
     const dispatch = useDispatch();
     const biu = useSelector((state) => state.movieList.baseImageUrl)
-
+    
     const onHandleSelectMovie = (id) => {
         dispatch(selectMovie(id))
         if(navegacion) {

@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { ImageComponent, StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     playerView: {
@@ -8,5 +8,13 @@ export const styles = StyleSheet.create({
     video: {
         width: '100%',
         height: '100%'
-    }
+    },
+    imgContainer: {
+        alignItems: 'center',
+    },
+    img: {
+        height: 230,
+        width: 150,
+        borderRadius: 10,
+    },
 })

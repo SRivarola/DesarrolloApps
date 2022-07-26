@@ -43,7 +43,7 @@ export const selectMovie = (id) => {
         try {
             const portada = await axios.get(`${baseUrl}movie/${id}?api_key=${apiKey}`)
             const selected = await axios.get(`${baseUrl}movie/${id}?api_key=${apiKey}&language=es-ES`)
-            
+          
             dispatch({
                 type: SELECT_MOVIE,
                 portada: portada.data,
@@ -73,11 +73,16 @@ export const getCast = (id) => {
 export const getVideo = (id) => {
     return async dispatch => {
         try {
-            const response = await axios.get(`${baseUrl}movie/${id}/videos?api_key=${apiKey}&language=es-ES`);
-            
+            const response = await axios.get(`${baseUrl}movie/${id}/videos?api_key=${apiKey}`);
+            // let url;
+            // if(response.data.results[0].key){
+            //     console.log('no hay url')
+            // } else {
+            //     console.log('el url es: ', response.data.results[0].key)
+            // }
             dispatch({
                 type: GET_VIDEO,
-                video: response.data.results[0].key,
+                video: response.data.results[0] ? response.data.results[0].key : null,
             })
         } catch(err) {
             console.log(err.message)

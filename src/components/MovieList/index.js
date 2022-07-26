@@ -8,7 +8,7 @@ import { styles } from './styles'
 const MovieList = ({lista, titulo, navegacion}) => {
 
     const movies = useSelector(lista)
-
+  
     const renderItem = ({item}) => (
         <Movie {...item} datos={item} navegacion={navegacion}/>
     );
