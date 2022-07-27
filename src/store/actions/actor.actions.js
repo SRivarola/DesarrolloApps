@@ -8,7 +8,7 @@ export const getActor = (id) => {
     return async dispatch => {
         try {
             const responseActor = await axios.get(`${baseUrl}person/${id}?api_key=${apiKey}&language=es-ES`);
-            const responseCredits = await axios.get(`${baseUrl}person/${id}/combined_credits?api_key=${apiKey}&language=es-ES`);
+            const responseCredits = await axios.get(`${baseUrl}person/combined_credits?api_key=${apiKey}&language=es-ES`);
             
             dispatch({
                 type: GET_ACTOR,

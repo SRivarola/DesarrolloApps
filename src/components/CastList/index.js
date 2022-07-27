@@ -7,7 +7,7 @@ import Cast from '../Cast/index';
 const CastList = ({navegacion}) => {
 
     const castList = useSelector((state) => state.movieList.cast)
-    // console.log(castList)
+    
     const renderItem = ({item}) => (
         <Cast {...item} datos={item} navegacion={navegacion} />
     );

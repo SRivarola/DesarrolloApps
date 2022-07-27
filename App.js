@@ -19,7 +19,10 @@ export default function App() {
   const [loaded] = useFonts({
     'Lato-Regular': require('./assets/fonts/Lato-Regular.ttf'),
     'Lato-Bold': require('./assets/fonts/Lato-Bold.ttf'),
-    'Lato-Black': require('./assets/fonts/Lato-Black.ttf')
+    'Lato-Black': require('./assets/fonts/Lato-Black.ttf'),
+    'Pelisflix-Regular': require('./assets/fonts/Pelisflix-Regular.otf'),
+    'Pelisflix-Bold': require('./assets/fonts/Pelisflix-Bold.otf'),
+
   })
 
   if (!loaded) {

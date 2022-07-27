@@ -5,6 +5,7 @@ import IonicsIcons from '@expo/vector-icons/Ionicons'
 import MainNavigator from '../main/index';
 import SearchNavigator from '../search/index';
 import UserNavigator from '../user/index';
+
 import { Text, Image } from 'react-native';
 import { colors } from '../../constants/colors';
 import { styles } from './styles';

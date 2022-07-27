@@ -1,20 +1,14 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
+import { styles } from './styles';
 
 const BrandScreen = () => {
     return (
         <View style={styles.container}>
-            <Text>Home screen</Text>
+            <Text style={styles.texto}>PELISFLIX</Text>
         </View>
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-})
 
 export default BrandScreen;
