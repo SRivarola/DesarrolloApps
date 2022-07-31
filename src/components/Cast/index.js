@@ -14,6 +14,7 @@ const Cast = ({name, profile_path, character, id, datos, navegacion}) => {
         dispatch(getActor(id))
         navegacion()
     }
+    
     return (
         <View>
             <Text style={styles.name} numberOfLines={1}>{name}</Text>

@@ -74,12 +74,7 @@ export const getVideo = (id) => {
     return async dispatch => {
         try {
             const response = await axios.get(`${baseUrl}movie/${id}/videos?api_key=${apiKey}`);
-            // let url;
-            // if(response.data.results[0].key){
-            //     console.log('no hay url')
-            // } else {
-            //     console.log('el url es: ', response.data.results[0].key)
-            // }
+         
             dispatch({
                 type: GET_VIDEO,
                 video: response.data.results[0] ? response.data.results[0].key : null,

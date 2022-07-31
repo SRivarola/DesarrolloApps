@@ -47,10 +47,6 @@ const DetailsScreen = ({navigation}) => {
                     <Text style={styles.texto}>{datos.release_date}</Text>
                     <Text style={styles.texto}>{convertirTiempo()}</Text>
                     <Text style={styles.hd}>HD</Text>
-                    {/* {
-                        initMovie.number_of_seasons &&
-                        <Text style={styles.texto}>{initMovie.number_of_seasons} {initMovie.number_of_seasons > 1 ? 'temporadas' : 'temporada'}</Text>
-                    } */}
                 </View>
                 <View style={styles.textoContainer}>
                     <Text style={styles.overview}>{datos.overview}</Text>

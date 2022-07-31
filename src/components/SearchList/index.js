@@ -7,7 +7,7 @@ const SearchList = ({search}) => {
 
     const searchList = useSelector((state) => state.search.searchList);
     const biu = useSelector((state) => state.movieList.baseImageUrl)
-    console.log(searchList)
+  
     const renderItem = ({item}) => (
         <View style={styles.card}>
             <Image

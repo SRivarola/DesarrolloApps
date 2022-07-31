@@ -11,7 +11,7 @@ const SearchScreen = () => {
     const [search, setSearch] = useState('');
     const [isSearch, setIsSearch] = useState(false)
     const searchList = useSelector((state) => state.search.searchList);
-    console.log('hay busqueda? ',isSearch, 'cual es la busqueda? ', searchList)
+   
     const onHandleChange = (valor) => {
         setSearch(valor)
     }
