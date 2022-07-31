@@ -24,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#000"
-      }
+      },
+      "package": "com.srivarola.pelisflix"
     },
     "web": {
       "favicon": "./assets/icon.png"
